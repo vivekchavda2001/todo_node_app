@@ -1,0 +1,29 @@
+<%- include("./partials/header.ejs") %>
+
+    <h1 class="text-center">List of Todos</h1><br />
+    <form method="POST" action="/add/todo">
+        <div class="form-group row">
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control-plaintext" name="todo" placeholder="Enter Todo">
+            </div>
+            <button class="btn btn-primary col-sm-2" type="submit">+ Add Todo</button>
+        </div>
+
+    </form><br />
+
+    <ul class="list-group">
+        <% todo.forEach(todos=>{%>
+            <li class="list-group-item">
+                <%= todos.todo %>
+                <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+
+            <%})%>
+
+
+
+    </ul>
+
+
+    <%- include("./partials/footer") %>
